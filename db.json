@@ -1,0 +1,49 @@
+{
+  "products": [
+    {
+      "id": 1,
+      "name": "Wireless Mouse",
+      "category": "Accessories",
+      "price": 25,
+      "stock": 40,
+      "brand": "LogiTech",
+      "description": "Ergonomic wireless mouse with smooth tracking."
+    },
+    {
+      "id": 2,
+      "name": "Mechanical Keyboard",
+      "category": "Accessories",
+      "price": 70,
+      "stock": 25,
+      "brand": "KeyChron",
+      "description": "Compact mechanical keyboard with RGB backlight."
+    },
+    {
+      "id": 3,
+      "name": "Gaming Monitor",
+      "category": "Monitors",
+      "price": 220,
+      "stock": 15,
+      "brand": "Acer",
+      "description": "24-inch Full HD monitor with 144Hz refresh rate."
+    },
+    {
+      "id": 4,
+      "name": "USB-C Hub",
+      "category": "Accessories",
+      "price": 35,
+      "stock": 30,
+      "brand": "Anker",
+      "description": "Multiport USB-C hub with HDMI and card reader."
+    },
+    {
+      "id": 5,
+      "name": "Bluetooth Speaker",
+      "category": "Audio",
+      "price": 55,
+      "stock": 20,
+      "brand": "JBL",
+      "description": "Portable speaker with deep bass and long battery life."
+    }
+  ]
+}
