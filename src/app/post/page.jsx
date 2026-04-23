@@ -73,7 +73,7 @@ const PostPage = async ({ searchParams }) => {
                     {visiblePosts.map((item, index) => (
                         <article
                             key={item.id}
-                            className="group rounded-[1.75rem] border border-slate-200 bg-white p-6 shadow-[0_12px_40px_rgba(15,23,42,0.08)] transition duration-300 hover:-translate-y-1 hover:shadow-[0_20px_50px_rgba(15,23,42,0.14)]"
+                            className="group flex h-full flex-col rounded-[1.75rem] border border-slate-200 bg-white p-6 shadow-[0_12px_40px_rgba(15,23,42,0.08)] transition duration-300 hover:-translate-y-1 hover:shadow-[0_20px_50px_rgba(15,23,42,0.14)]"
                         >
                             <div className="mb-5 flex items-center justify-between">
                                 <span className="rounded-full bg-sky-100 px-3 py-1 text-xs font-semibold uppercase tracking-[0.2em] text-sky-700">
@@ -92,7 +92,7 @@ const PostPage = async ({ searchParams }) => {
                                 {item.body}
                             </p>
 
-                            <div className="mt-6 flex items-center justify-between border-t border-slate-100 pt-5">
+                            <div className="mt-auto flex items-center justify-between border-t border-slate-100 pt-5">
                                 <div>
                                     <p className="text-xs uppercase tracking-[0.25em] text-slate-400">
                                         Author ID
@@ -101,12 +101,12 @@ const PostPage = async ({ searchParams }) => {
                                         User {item.userId}
                                     </p>
                                 </div>
-                                <button
-                                    type="button"
+                                <Link
+                                    href={`/post/${item.id}`}
                                     className="rounded-full bg-slate-900 px-4 py-2 text-sm font-semibold text-white transition hover:bg-sky-600"
                                 >
                                     Read more
-                                </button>
+                                </Link>
                             </div>
                         </article>
                     ))}

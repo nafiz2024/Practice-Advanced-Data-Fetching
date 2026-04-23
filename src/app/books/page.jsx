@@ -1,3 +1,5 @@
+import Link from 'next/link';
+
 const getBooks = async () => {
     try {
         const res = await fetch('http://localhost:5000/books');
@@ -162,6 +164,13 @@ const BooksPage = async () => {
                                     </p>
                                 </div>
                             </div>
+
+                            <Link
+                                href={`/books/${book.id}`}
+                                className="mt-5 inline-flex items-center justify-center rounded-full bg-slate-900 px-5 py-3 text-sm font-semibold text-white transition hover:bg-sky-700"
+                            >
+                                View Details
+                            </Link>
                         </article>
                     ))}
                 </div>
