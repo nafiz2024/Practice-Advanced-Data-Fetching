@@ -45,5 +45,52 @@
       "brand": "JBL",
       "description": "Portable speaker with deep bass and long battery life."
     }
+  ],
+  "books": [
+    {
+      "id": 1,
+      "name": "Atomic Habits",
+      "category": "Books",
+      "price": 18,
+      "stock": 34,
+      "brand": "James Clear",
+      "description": "Practical strategies for building good habits and breaking bad ones."
+    },
+    {
+      "id": 2,
+      "name": "Deep Work",
+      "category": "Books",
+      "price": 16,
+      "stock": 22,
+      "brand": "Cal Newport",
+      "description": "A productivity classic about focused work in a distracted world."
+    },
+    {
+      "id": 3,
+      "name": "The Pragmatic Programmer",
+      "category": "Books",
+      "price": 29,
+      "stock": 18,
+      "brand": "Andrew Hunt",
+      "description": "A timeless software engineering guide packed with practical advice."
+    },
+    {
+      "id": 4,
+      "name": "Clean Code",
+      "category": "Books",
+      "price": 27,
+      "stock": 14,
+      "brand": "Robert C. Martin",
+      "description": "A well-known handbook on writing readable and maintainable code."
+    },
+    {
+      "id": 5,
+      "name": "The Psychology of Money",
+      "category": "Books",
+      "price": 20,
+      "stock": 26,
+      "brand": "Morgan Housel",
+      "description": "Short lessons on wealth, behavior, and long-term financial thinking."
+    }
   ]
 }

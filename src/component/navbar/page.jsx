@@ -4,6 +4,7 @@ const links = <>
     <li><Link href='/'>Home</Link></li>
     <li><Link href='/post'>Post</Link></li>
     <li><Link href='/products'>Products</Link></li>
+    <li><Link href='/books'>Books</Link></li>
 </>
 
 
