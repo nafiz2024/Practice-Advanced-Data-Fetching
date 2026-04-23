@@ -1,3 +1,4 @@
+import Image from 'next/image';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import { getProductImage } from '@/lib/detail-hero-image';
@@ -51,9 +52,11 @@ const ProductDetailsPage = async ({ params }) => {
 
                         <div className="space-y-4">
                             <div className="overflow-hidden rounded-[1.75rem] border border-white/15 bg-slate-950/20">
-                                <img
+                                <Image
                                     src={productImage}
                                     alt={`${product.name} themed product preview`}
+                                    width={1200}
+                                    height={800}
                                     className="h-72 w-full object-cover"
                                 />
                             </div>

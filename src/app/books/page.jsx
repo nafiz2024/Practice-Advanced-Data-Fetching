@@ -1,13 +1,13 @@
 import Link from 'next/link';
 
 const getBooks = async () => {
-    try {
-        const res = await fetch('http://localhost:5000/books');
-        return res.json();
-    }
-    catch (err) {
+    const res = await fetch('http://localhost:5000/books', { cache: 'no-store' });
+
+    if (!res.ok) {
         throw new Error('Failed To Fetch Books');
     }
+
+    return res.json();
 };
 
 const BooksPage = async () => {
