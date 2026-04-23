@@ -1,13 +1,13 @@
 import Link from "next/link";
 
 const getPosts = async () => {
-    try {
-        const res = await fetch("https://jsonplaceholder.typicode.com/posts");
-        return res.json();
-    }
-    catch (err) {
+    const res = await fetch("https://jsonplaceholder.typicode.com/posts", { cache: 'no-store' });
+
+    if (!res.ok) {
         throw new Error('Failed to fetch Posts')
     }
+
+    return res.json();
 }
 
 const PostPage = async ({ searchParams }) => {

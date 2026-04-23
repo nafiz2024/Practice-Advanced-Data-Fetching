@@ -1,13 +1,13 @@
 import Link from 'next/link';
 
 const getProducts = async () => {
-    try {
-        const res = await fetch('http://localhost:5000/products', { cache: 'no-store' })
-        return res.json();
-    }
-    catch (err) {
+    const res = await fetch('http://localhost:5000/products', { cache: 'no-store' });
+
+    if (!res.ok) {
         throw new Error('Failed To Fetch Products')
     }
+
+    return res.json();
 }
 
 const ProductsPage = async () => {
