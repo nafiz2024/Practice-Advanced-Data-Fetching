@@ -1,36 +1,168 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Advanced Data Fetching
+
+A polished Next.js practice project for exploring real-world data fetching patterns with multiple sources, dynamic routes, and clean UI presentation.
+
+This app combines:
+
+- Local data from `json-server` for books and products
+- External data from JSONPlaceholder for posts
+- Dynamic detail pages for each resource
+- A consistent card-based interface across sections
+
+## Overview
+
+The project is built to practice how modern Next.js pages fetch, display, and organize data from different endpoints. Instead of working with a single list, the app brings together three separate content flows:
+
+- `Books` from a local API
+- `Products` from a local API
+- `Posts` from a live external API
+
+The home page fetches all three in parallel and turns them into a small dashboard. Each section then has its own listing page and dedicated detail route.
+
+## Features
+
+- Parallel data loading on the home page using `Promise.all()`
+- Local mock API with `json-server`
+- External API integration with JSONPlaceholder
+- Dynamic routes for books, products, and posts
+- Loading UI for book details
+- Graceful 404 handling with `notFound()`
+- Modern responsive layout with Tailwind CSS
+- Shared navigation across all pages
+
+## Route Map
+
+| Route | Purpose | Data Source |
+| --- | --- | --- |
+| `/` | Dashboard-style landing page | Local books + local products + external posts |
+| `/books` | Book listing page | `http://localhost:5000/books` |
+| `/books/[bookId]` | Single book details page | `http://localhost:5000/books/:id` |
+| `/products` | Product listing page | `http://localhost:5000/products` |
+| `/products/[productId]` | Single product details page | `http://localhost:5000/products/:id` |
+| `/post` | Posts listing page | `https://jsonplaceholder.typicode.com/posts` |
+| `/post/[postId]` | Single post details page | `https://jsonplaceholder.typicode.com/posts/:id` |
+
+## Tech Stack
+
+- Next.js `16.2.4`
+- React `19.2.4`
+- Tailwind CSS `4`
+- DaisyUI
+- JSON Server
+
+## Project Structure
+
+```text
+src/
+  app/
+    page.js
+    books/
+      page.jsx
+      [bookId]/
+        page.jsx
+        loading.jsx
+    products/
+      page.jsx
+      [productId]/
+        page.jsx
+    post/
+      page.jsx
+      [postId]/
+        page.jsx
+  component/
+    navbar/
+      page.jsx
+  lib/
+    detail-hero-image.js
+
+db.json
+```
 
 ## Getting Started
 
-First, run the development server:
+### 1. Install dependencies
+
+```bash
+npm install
+```
+
+### 2. Start the local mock API
+
+```bash
+npm run server
+```
+
+This runs `json-server` on:
+
+```text
+http://localhost:5000
+```
+
+### 3. Start the Next.js app
+
+Open a second terminal and run:
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Then visit:
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+```text
+http://localhost:3000
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Available Scripts
 
-## Learn More
+```bash
+npm run dev
+npm run build
+npm run start
+npm run lint
+npm run server
+```
 
-To learn more about Next.js, take a look at the following resources:
+## Local API Data
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+The local API lives in [`db.json`](./db.json) and currently exposes two collections:
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+- `books`
+- `products`
 
-## Deploy on Vercel
+Example endpoints:
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+```text
+GET http://localhost:5000/books
+GET http://localhost:5000/products
+GET http://localhost:5000/books/1
+GET http://localhost:5000/products/1
+```
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## Learning Focus
+
+This project is useful for practicing:
+
+- Server-side data fetching in route components
+- Combining multiple async requests
+- Working with local and external APIs together
+- Building dynamic detail pages from route params
+- Handling loading and missing-state UX
+- Designing a more production-like UI for fetched data
+
+## Notes
+
+- The app depends on the local `json-server` running on port `5000`
+- Posts are fetched from JSONPlaceholder, so that section requires internet access
+- Books and products use `cache: 'no-store'`, so fresh data is requested on each load
+
+## Future Improvements
+
+- Add search and filtering
+- Add pagination for posts
+- Add error boundaries for each section
+- Move fetch helpers into reusable server utilities
+- Add TypeScript or schema validation for API responses
+
+## License
+
+This project is for learning and practice.
